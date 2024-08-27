@@ -1,0 +1,12 @@
+model Users {
+    id Int @id @default(autoincrement())
+}
+
+model Other {
+    id Int @id @default(autoincrement())
+}
+
+model AndOther {
+    id Int @id @default(autoincrement())
+}
+
