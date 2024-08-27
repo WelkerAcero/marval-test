@@ -28,7 +28,7 @@ const CREAR_CONTROLADOR = async (controllerNameParam) => {
             `;
         }
 
-        let dataFile = `./app/Http/Controllers/${controllerName}.ts`;
+        let dataFile = `./src/app/Http/Controllers/${controllerName}.ts`;
         FS.writeFileSync(dataFile, prettier.format(template, { parser: 'typescript' }));
 
         return dataFile;

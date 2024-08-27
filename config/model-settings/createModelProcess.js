@@ -53,7 +53,7 @@ const CREAR_MODELO = async (modelNameParam) => {
             `;
         }
 
-        let dataFile = `./app/Models/${model}.ts`;
+        let dataFile = `./src/app/Models/${model}.ts`;
         FS.writeFileSync(dataFile, prettier.format(template, { parser: 'typescript' }));
 
         return dataFile;

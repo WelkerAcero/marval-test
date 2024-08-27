@@ -1,4 +1,4 @@
-import { CREAR_CONTROLADOR } from './createControllerProcess.js';
+const { CREAR_CONTROLADOR } = require('./createControllerProcess.js');
 console.clear();
 console.log(process.argv); // Datos enviados por consola
 const argv = require('yargs')

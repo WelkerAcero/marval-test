@@ -1,4 +1,4 @@
-import { CREAR_MODELO } from './createModelProcess.js';
+const { CREAR_MODELO } = require('./createModelProcess.js');
 console.clear();
 console.log(process.argv); // Datos enviados por consola
 const argv = require('yargs')
