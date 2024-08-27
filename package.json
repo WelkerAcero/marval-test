@@ -7,7 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p tsconfig.json",
     "model": "node ./config/model-settings/app.js --model=$npm_config_model",
-    "controller": "node ./config/controller-settings/app.js --controller=$npm_config_controller"
+    "controller": "node ./config/controller-settings/app.js --controller=$npm_config_controller",
+    "dbgenerate": "npx prisma generate --schema=./Database/schema.prisma",
+    "migrate": "npx prisma migrate dev --name init --schema=./src/Database/schema.prisma",
+    "db_push": "npx prisma db push --schema=./src/Database/schema.prisma --accept-data-loss",
+    "db_seed": "ts-node ./src/Database/seed.ts",
+    "import_sql": "psql -h db -U postgres -d postgres -f ./src/Database/db.sql"
   },
   "keywords": [],
   "author": "",
