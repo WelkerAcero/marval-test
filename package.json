@@ -1,0 +1,25 @@
+{
+  "name": "marval_test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon ./src/public/MyServer.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p tsconfig.json",
+    "model": "node ./config/model-settings/app.js --model=$npm_config_model",
+    "controller": "node ./config/controller-settings/app.js --controller=$npm_config_controller"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
