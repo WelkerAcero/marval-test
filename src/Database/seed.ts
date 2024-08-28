@@ -52,7 +52,7 @@ async function main() {
             { type: 'READ' },
             { type: 'UPDATE' },
             { type: 'DELETE' },
-            { type: 'EXPORT' },
+            { type: 'CHANGE-STATUS' },
         ],
     })
 
