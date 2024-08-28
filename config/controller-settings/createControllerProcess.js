@@ -18,7 +18,7 @@ const CREAR_CONTROLADOR = async (controllerNameParam) => {
         if (controllerNameParam != '') {
             template = `import { Request, Response } from "express";
                 import {${model}} from "../../Models/${model}";
-                import { ERROR_MESSAGES, SUCCESS_MESSAGES } from "../../../../config/statusMessages/messages";
+                import { ERROR_MESSAGES, SUCCESS_MESSAGES } from "../../../../config/status-messages/messages";
                 import { JWT } from "../../helpers/JWT";
 
                 export class ${controllerName} extends ${model}
