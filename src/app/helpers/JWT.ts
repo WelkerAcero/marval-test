@@ -29,6 +29,8 @@ export class JWT {
             permissions.push(obj.Permissions!.type);
         });
 
+        console.log('USER PERMISSIONS:', permissions);
+
         let validationRes: boolean = true;
         if (typeof (permissionNeeded) === 'string') if (!permissions.includes(permissionNeeded)) validationRes = false;
         if (Array.isArray(permissionNeeded)) permissionNeeded.forEach(permission => { if (!permissions.includes(permission)) validationRes = false; });

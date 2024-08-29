@@ -47,27 +47,29 @@ export class Model {
         this.rules = rules;
     }
 
-    async saveUserChanges(
-        user: USER_TYPE, action: 'CREATE' | 'READ' | 'UPDATE' | 'DELETE',
-        module: string, ipAddress: string, userAgent: string,
-        description?: string, changedData?: object, previousData?: object
-    ): Promise<void> {
+    /* ACTIVATED ONLY WHEN DB TABLE: "historyUserChanges" exist*/
 
-        const DATA_TO_STORE = {
-            user_document_id: user.documentId,
-            user_name: user.name,
-            user_lastname: user.lastname,
-            description,
-            action,
-            module,
-            changedData,
-            previousData,
-            ipAddress,
-            userAgent,
-        }
-        const CHANGES = await this.prisma.historyUserChanges.create({ data: DATA_TO_STORE });
-        if (CHANGES) console.log('Los cambios del usuario han sido guardados:', CHANGES);
-    }
+    // async saveUserChanges(
+    //     user: USER_TYPE, action: 'CREATE' | 'READ' | 'UPDATE' | 'DELETE',
+    //     module: string, ipAddress: string, userAgent: string,
+    //     description?: string, changedData?: object, previousData?: object
+    // ): Promise<void> {
+
+    //     const DATA_TO_STORE = {
+    //         user_document_id: user.documentId,
+    //         user_name: user.name,
+    //         user_lastname: user.lastname,
+    //         description,
+    //         action,
+    //         module,
+    //         changedData,
+    //         previousData,
+    //         ipAddress,
+    //         userAgent,
+    //     }
+    //     const CHANGES = await this.prisma.historyUserChanges.create({ data: DATA_TO_STORE });
+    //     if (CHANGES) console.log('Los cambios del usuario han sido guardados:', CHANGES);
+    // }
 
     select(fields: string[] | string): Model {
         this._tableField = [];
@@ -362,9 +364,9 @@ export class Model {
                 const TABLE_MODEL_2 = (tx as any)[table2];
 
                 const STORE_TABLE_1 = await TABLE_MODEL_1.create({ data: dataTable1 });
-                await TABLE_MODEL_2.create({ data: { ...dataTable2, [foreignName]: STORE_TABLE_1.id } });
+                const STORE_TABLE_2 = await TABLE_MODEL_2.create({ data: { ...dataTable2, [foreignName]: STORE_TABLE_1.id } });
 
-                return await this.with([table1]).where('id', STORE_TABLE_1.id).get();
+                return [{ ...STORE_TABLE_1, [table2]: STORE_TABLE_2 }];
             });
         } catch (error: any) {
             return PrismaErrorHandler.error(error);

@@ -1,11 +1,18 @@
 import { Model } from "./Model";
 export class UserModel extends Model {
   private targetDbTable = this.prisma.users;
-  private allowedFields: string[] = [];
-  private allowedRules: object = {
-    param1: { type: "string", max: 10, min: 8 },
-    param2: { type: "string", max: 10, min: 8 },
-  };
+  public allowedFields: string[] = ['id', 'documentType', 'documentId', 'name', 'lastname', 'cellphone', 'email', 'password', 'role_id', 'remember_token'];
+  public allowedRules: object = {
+    'documentType': { type: 'string', max: 25 },
+    'documentId': { type: 'string', min: 8, max: 10 },
+    'name': { type: 'string', max: 50 },
+    'lastname': { type: 'string', max: 50 },
+    'cellphone': { type: 'string', min: 10 },
+    'email': { type: 'string' },
+    'password': { type: 'string', max: 100, },
+    'role_id': { type: 'number' },
+    'remember_token': { type: 'string', max: 100 }
+  }
 
   constructor() {
     super();

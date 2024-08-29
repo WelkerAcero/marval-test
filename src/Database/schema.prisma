@@ -73,6 +73,8 @@ model Providers {
   person_type   PersonType
   status        ProviderStatus @default(Pendiente)
 
+  BankAccounts BankAccounts?
+
   createdAt DateTime @default(now()) @db.Timestamptz(0)
   updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(0)
 }
@@ -87,12 +89,21 @@ model Partners {
 }
 
 model BankAccounts {
-  id               Int     @id @default(autoincrement())
-  account_number   String  @unique @db.VarChar(11)
-  available_amount Decimal @db.Decimal(19, 4)
+  id             Int         @id @default(autoincrement())
+  bank_name      String      @db.VarChar(50)
+  account_type   AccountType
+  account_number String      @unique @db.VarChar(11)
+
+  Providers   Providers @relation(fields: [provider_id], references: [id], onDelete: Cascade)
+  provider_id Int       @unique
 
   createdAt DateTime @default(now()) @db.Timestamptz(0)
   updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(0)
+}
+
+enum AccountType {
+  Ahorros
+  Corriente
 }
 
 enum ProviderType {

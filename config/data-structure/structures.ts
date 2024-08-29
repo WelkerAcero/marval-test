@@ -7,6 +7,7 @@ export type RULE_TYPE = {
     type: string,
     max?: number,
     min?: number,
+    mandatory?: string[],
     default?: null
 }
 
@@ -74,7 +75,7 @@ export type USER_TYPE = {
 }
 
 export type PROVIDER_TYPE = {
-    id: number,
+    id?: number,
     nit: string,
     documentId: string,
     name: string,
@@ -82,15 +83,16 @@ export type PROVIDER_TYPE = {
     provider_type: string, // Nacional | Internacional
     person_type: string,   // Natural | Juridico
     Partners: PARTNERS_TYPE[],
-    BankAccount: BANK_ACCOUNT_TYPE,
+    BankAccounts?: BANK_ACCOUNT_TYPE,
     createdAt?: Date,
     updatedAt?: Date,
 }
 
 export type BANK_ACCOUNT_TYPE = {
-    id: number,
+    id?: number,
+    bank_name: string,
+    account_type: string,
     account_number: string,
-    amount: number,
     provider_id: number,
     createdAt?: Date,
     updatedAt?: Date,
