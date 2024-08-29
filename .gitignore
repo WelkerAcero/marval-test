@@ -1,8 +1,9 @@
 /node_modules
-/app/decorators
-/public/hot
-/public/storage
-/storage/*.key
+src/app/decorators
+src/public/hot
+src/public/storage
+src/storage/*.key
+src/Database/migrations
 dist
 .env
 .env.backup
@@ -15,4 +16,3 @@ swagger.yaml
 /.idea
 /.vscode
 .github
-Database/migrations

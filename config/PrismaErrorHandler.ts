@@ -34,6 +34,10 @@ export class PrismaErrorHandler {
         let replaceFieldName: string = '';
 
         switch (fieldName) {
+            case "nit":
+                replaceFieldName = 'NIT';
+                break;
+
             case "documentId":
                 replaceFieldName = 'Documento de identidad';
                 break;
@@ -54,24 +58,16 @@ export class PrismaErrorHandler {
                 replaceFieldName = 'Email';
                 break;
 
-            case "professionalId":
-                replaceFieldName = 'Tarjeta profesional';
+            case "provider_type":
+                replaceFieldName = 'Tipo de proveedor';
                 break;
 
-            case "service":
-                replaceFieldName = 'Nombre del servicio médico o especialidad';
+            case "person_type":
+                replaceFieldName = 'Tipo de persona';
                 break;
 
-            case "presentation":
-                replaceFieldName = 'Forma médica o presentación de la medicina';
-                break;
-
-            case "frequency":
-                replaceFieldName = 'Frecuencia de administración de la medicina';
-                break;
-
-            case "frequency":
-                replaceFieldName = 'Frecuencia de administración de la medicina';
+            case "status":
+                replaceFieldName = 'Estado del proveedor';
                 break;
 
             default:

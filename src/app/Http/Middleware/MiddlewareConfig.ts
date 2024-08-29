@@ -12,13 +12,13 @@ export default class MiddlewareConfig {
   public whiteList: string[] = [this.frontUrl!];
   public _app: Express = express();
 
-  public server = http.createServer({ maxHeaderSize: 10000000, requestTimeout: 300000 }, this._app);
+  public server = http.createServer({ maxHeaderSize: 10000, requestTimeout: 3000 }, this._app);
   
   constructor() {
     console.log('Cors whitelist:', this.whiteList);
     this._app.use(response_time());
-    this._app.use(express.json({ limit: '100mb' }));
-    this._app.use(BodyParser.urlencoded({ extended: true, limit: '100mb' }));
+    this._app.use(express.json({ limit: '5mb' }));
+    this._app.use(BodyParser.urlencoded({ extended: true, limit: '5mb' }));
     this._app.use(cookieParser());
 
     this._app.use(cors({
@@ -29,9 +29,10 @@ export default class MiddlewareConfig {
       optionsSuccessStatus: 204,
       origin: (origin, callback) => {
         if (origin && this.whiteList.includes(origin)) {
-          callback(null, true);
+          //callback(null, true); // ACTIVATED WHEN A FRONT-END IS SET
         } else {
-          callback(new Error(`${origin} Not allowed by CORS`));
+          callback(null, true); // DELETE THIS LINE WHEN A FRONT-END IS SET
+          //callback(new Error(`${origin} Not allowed by CORS`)); // UNCOMMENT WHEN WHEN A FRONT-END IS SET 
         }
       }
     }));

@@ -31,21 +31,7 @@ export default class MyServer extends MiddlewareConfig {
     })
   }
 
-  // async ngrokConnection(): Promise<any> {
-  //   ngrok.disconnect("ma2w1wkc");
-  //   ngrok.kill();
-  //   const url = await ngrok.connect({
-  //     id: "rd_2PiMfCMk0kLlbTdJOkn0oJJluq9",
-  //     proto: "http", // http|tcp|tls, defaults to http
-  //     addr: this._port,
-  //     domain: "ma2w1wkc",
-  //     //subdomain: "jay-fresh-filly.ngrok-free.app",
-  //   });
-  //   return console.log(`This is the route generated: ${url}`);
-  // }
-
   async start() {
-    //await this.ngrokConnection();
     this.routes();
     this.server.listen(this._port, () => {
       console.log("localhost:" + this._port);
