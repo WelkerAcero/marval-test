@@ -39,17 +39,23 @@ step 2
 create database in postgresql with database name: marval_test
 
 step 3
+example.env file in the project RENAME TO => .env
+
+step 4
+Change the following: POSTGRES_PASSWORD_HERE => your real password
+DATABASE_URL="postgresql://postgres:POSTGRES_PASSWORD_HERE@localhost:5432/marval_test?schema=public&pool_timeout=5"
+
+step 5
 ```sh
 npm run db_generate
 ```
 
-step 4
+step 6
 ```sh
 npm run db_migrate
 ```
 
-
-step 5
+step 7
 ```sh
 npm run db_seed
 ```
