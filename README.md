@@ -59,3 +59,8 @@ step 7
 ```sh
 npm run db_seed
 ```
+
+step 8
+```sh
+npm run dev
+```
