@@ -6,7 +6,7 @@
 
 ## Packages version
 prisma version must be the same as its command cli version
-Example: "@prisma/client": "^4.16.2", "prisma": "^4.16.1"
+Example: "@prisma/client": "^4.16.1", "prisma": "^4.16.1"
 Mandatory to avoid issues.
 
 ## Customize configuration
