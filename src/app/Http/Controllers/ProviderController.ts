@@ -116,7 +116,7 @@ export class ProviderController extends ProviderModel {
 
   updateProviderStatus = async (req: Request, res: Response): Promise<Response> => {
     try {
-      if (!(await JWT.validatePermission(req.headers.authorization, 'PROVIDER-UPDATE', this))) {
+      if (!(await JWT.validatePermission(req.headers.authorization, 'CHANGE-STATUS', this))) {
         return res.status(401).json({ error: { message: ERROR_MESSAGES.PERMISSIONS_DENIED } });
       }
       
