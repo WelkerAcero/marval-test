@@ -12,16 +12,16 @@ Mandatory to avoid issues.
 ## Customize configuration
 
 ## CREATE MODELS FROM COMMAND LINE
-# Model must be written like: user, patient, this will create="UserModel.ts,PatientModel.ts."
-# in case of more words, must be written like: userAssistance, this will generate=UserAssistanceModel
+Model must be written like: user, patient, this will create="UserModel.ts,PatientModel.ts."
+in case of more words, must be written like: userAssistance, this will generate=UserAssistanceModel
 
 ```sh
 npm run model --model=user
 ```
 
 ## CREATE CONTROLLERS FROM COMMAND LINE
-# Controller must be written like: user, patient, this will create="UserController.ts, PatientController.ts."
-# in case of more words, must be written like: userAssistance, this will generate=UserAssistanceController
+Controller must be written like: user, patient, this will create="UserController.ts, PatientController.ts."
+in case of more words, must be written like: userAssistance, this will generate=UserAssistanceController
 
 ```sh
 npm run controller --controller=user
